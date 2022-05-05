@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Faculties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #307D7E">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="/faculty/all" class="btn btn-outline-light">Faculties</a> &nbsp;&nbsp;
+            </li>
+            <li class="nav-item active">
+                <a href="/faculty/save" class="btn btn-success">Save Faculty</a>
+            </li>
+        </ul>
+
+        <div class="d-flex justify-content-center">
+            <form class="d-inline-flex">
+                <input class="form-control me-2" type="search" placeholder="Search faculties" aria-label="Search">&nbsp;&nbsp;
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+        </div>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+                <a href="/contact" class="btn btn-outline-light">Contact</a>&nbsp;&nbsp;
+            </li>
+            <li class="nav-item ml-auto">
+                <a href="/logout" class="btn btn-dark">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div th:switch="${faculties}">
+    <table class="table table-striped">
+        <thead>
+        <tr align="center">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Dean</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="faculty : ${faculties}" align="center">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book. nameFaculty}"></td>
+            <td th:text="${book.department}"></td>
+            <td th:text="${book.dean}"></td>
+
+            <td>
+                <a th:href="@{'/faculty/update/' + ${faculty.id}}" class="btn btn-info" data-toggle="tooltip"
+                   th:attr="title=Update +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'">Update</a>
+                <a th:href="@{'/faculty/delete/' + ${faculty.id}}" class="btn btn-danger" data-toggle="tooltip"
+                   th:attr="title=Delete +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'" >Delete</a>
+            </td>
+
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
