@@ -1,4 +1,4 @@
-package university.service;
+package university.service.user;
 
 import org.springframework.stereotype.Service;
 import university.enitity.MyUser;
@@ -13,6 +13,9 @@ public interface UserService {
     MyUser findUserByEmail(String email);
 
     MyUser findUserByUserName(String userName);
+
+    MyUser findUserByRandomToken(String randomToken);
+
 
     boolean findUserByUserNameAndPassword(String userName, String password);
 

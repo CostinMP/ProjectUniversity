@@ -18,9 +18,10 @@
 
 <body style="background-color: #D1D0CE">
 <br><br>
-    <div class="d-flex justify-content-center">
-        <a href="/faculty/all" class="btn btn-secondary">Home</a>
-    </div>
+<div class="d-flex justify-content-center">
+    <a href="/index" class="btn btn-secondary">Home</a> &nbsp;
+    <a href="/faculty/all" class="btn btn-secondary">All Faculties</a>
+</div>
 
 <br><br>
 <br><br>
@@ -28,7 +29,7 @@
 <div class="container-fluid text-center" style="max-width:600px; margin:0 auto; background-color: #D1D0CE ">
     <div class="text-center"><h2>Save Faculty</h2></div>
     <div th:if="${message}" class="alert alert-light text-center">
-        The faculty has been saved successfully.
+        The faculty has been successfully saved.
     </div>
     <br>
 
@@ -59,7 +60,7 @@
             <br>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-dark"> Save Faculty</button>
+                <button type="submit" class="btn btn-dark">Save</button>
             </div>
         </div>
     </form>

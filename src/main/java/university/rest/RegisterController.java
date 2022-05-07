@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import university.enitity.MyUser;
-import university.service.UserService;
+import university.service.user.UserService;
 
 @Controller
 @RequestMapping(value = "/register")

@@ -1,4 +1,5 @@
-package university.service;
+package university.service.user.impl;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -8,9 +9,14 @@ import university.enitity.MyUser;
 import university.enitity.Role;
 import university.repository.RoleRepository;
 import university.repository.UserRepository;
+import university.service.email.BodyBuilderService;
+import university.service.email.EmailSender;
+import university.service.token.RandomTokenService;
+import university.service.user.UserService;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 
@@ -20,7 +26,16 @@ public class UserServiceImplementation implements UserService {
     private final RoleRepository roleRepository;
 
     @Autowired
-    public UserServiceImplementation(UserRepository userRepository, RoleRepository roleRepository){
+    BodyBuilderService bodyBuilderService;
+
+    @Autowired
+    EmailSender emailSender;
+
+    @Autowired
+    private RandomTokenService randomTokenService;
+
+    @Autowired
+    public UserServiceImplementation(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
@@ -31,6 +46,10 @@ public class UserServiceImplementation implements UserService {
 
     public MyUser findUserByUserName(String userName) {
         return userRepository.findByUsernameIgnoreCase(userName);
+    }
+
+    public MyUser findUserByRandomToken(String randomToken) {
+        return userRepository.findByRandomToken(randomToken);
     }
 
     public boolean findUserByUserNameAndPassword(String userName, String password) {
@@ -49,6 +68,8 @@ public class UserServiceImplementation implements UserService {
     public MyUser saveUser(MyUser u) {    //functioneaza alaturi de un constructor de copiere
         MyUser user = new MyUser(u);
         user.setPassword(new BCryptPasswordEncoder().encode(u.getPassword()));
+        user.setRandomToken(randomTokenService.randomToken(u));
+        emailSender.sendEmail(user.getEmail(), "Activate your Account", bodyBuilderService.emailBody(user));
         u.getRoles().forEach(role -> {
             final Role roleByName = roleRepository.findByName(role.getName());
             if (roleByName == null)
@@ -59,4 +80,6 @@ public class UserServiceImplementation implements UserService {
         });
         return userRepository.save(user);
     }
+
+
 }

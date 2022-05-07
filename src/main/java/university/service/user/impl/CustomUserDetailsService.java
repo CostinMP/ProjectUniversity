@@ -1,4 +1,4 @@
-package university.service;
+package university.service.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import university.enitity.MyUser;
 import university.enitity.Role;
+import university.service.user.UserService;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;

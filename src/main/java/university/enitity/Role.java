@@ -3,6 +3,7 @@ package university.enitity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Setter
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @Column(name = "role_id")
@@ -19,5 +20,9 @@ public class Role {
 
     @Column(unique = true, nullable = false)
     private String name;
+
+    public Role(String name) {
+        this.name = name;
+    }
 
 }

@@ -23,10 +23,9 @@
         </ul>
 
         <div class="d-flex justify-content-center">
-            <form class="d-inline-flex">
-                <input class="form-control me-2" type="search" placeholder="Search faculties" aria-label="Search">&nbsp;&nbsp;
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
+            <div class="d-flex justify-content-center">
+                <a href="/index" class="btn btn-primary">Home</a>
+            </div>
         </div>
 
         <ul class="navbar-nav ml-auto">
@@ -55,10 +54,10 @@
 
         <tbody>
         <tr th:each="faculty : ${faculties}" align="center">
-            <td th:text="${book.id}"></td>
-            <td th:text="${book. nameFaculty}"></td>
-            <td th:text="${book.department}"></td>
-            <td th:text="${book.dean}"></td>
+            <td th:text="${faculty.id}"></td>
+            <td th:text="${faculty.nameFaculty}"></td>
+            <td th:text="${faculty.department}"></td>
+            <td th:text="${faculty.dean}"></td>
 
             <td>
                 <a th:href="@{'/faculty/update/' + ${faculty.id}}" class="btn btn-info" data-toggle="tooltip"

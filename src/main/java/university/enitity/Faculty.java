@@ -3,6 +3,7 @@ package university.enitity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -20,15 +21,23 @@ public class Faculty {
     @OneToOne(cascade = CascadeType.ALL)
     private ContactDetails contactDetails;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Dean dean;
+    @Column(nullable = false, unique = true)
+    private String department;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Department department;
+    @ManyToMany
+    @JoinTable(
+            name = "faculty_dean",
+            joinColumns = @JoinColumn(name = "faculty_id"),
+            inverseJoinColumns = @JoinColumn(name = "dean_id"))
+    private Set<Dean> deans;
+
+    @Column(nullable = false)
+    private String dean;
 
     @Column
     private boolean available;
 
+    @Transient
     @Column(nullable = false, length = 2)
     private Integer quantity;
 

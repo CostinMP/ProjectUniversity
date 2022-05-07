@@ -8,7 +8,11 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
 </head>
-<body>
+</br>
+</br>
+</br>
+</br>
+<body style="background-color: #D1D0CE">
 <div align="center">
     <h1>Login page</h1>
 </div>
@@ -16,7 +20,7 @@
 <div class="container" align="center" style="max-width:330px; margin:0 auto">
 
     <div th:if="${loginError}" class="alert alert-danger" role="alert">
-        <p class="error">Wrong user or password</p>
+        <p class="error">Wrong username or password</p>
     </div>
 
 
@@ -34,7 +38,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success" style="width:80px;">Login</button>
-            <span><a th:href="@{/register}" class="btn btn-success">Register</a> </span>
+            <span><a th:href="@{/register}" class="btn btn-info">Register</a> </span>
         </div>
     </form>
 </div>

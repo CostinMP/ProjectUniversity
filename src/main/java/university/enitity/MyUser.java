@@ -55,6 +55,12 @@ public class MyUser implements UserDetails {
     @Column(unique = true)
     private String email;
 
+    @Column
+    private String randomToken;
+
+    @Transient
+    private String randomTokenEmail;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
