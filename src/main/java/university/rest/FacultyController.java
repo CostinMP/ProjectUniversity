@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import university.enitity.ContactDetails;
 import university.enitity.Faculty;
+import university.repository.ContactRepository;
 import university.repository.DeanRepository;
 import university.repository.FacultyRepository;
 import university.repository.UserRepository;
@@ -21,6 +23,9 @@ public class FacultyController {
 
     @Autowired
     private DeanRepository deanRepository;
+
+//    @Autowired
+//    private ContactRepository contactRepository;
 
 
     @PostMapping(value = "/faculty/add")

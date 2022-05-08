@@ -60,10 +60,15 @@
             <td th:text="${faculty.dean}"></td>
 
             <td>
+
+<!--                <a th:href="@{'/contact/save/' + ${contact.id}}" class="btn btn-warning" data-toggle="tooltip"-->
+<!--                   th:attr="title=Sing-up +'&nbsp;'+'&quot;'+${contactDetails.username}+'&quot;'" >Sing-up</a>-->
+
                 <a th:href="@{'/faculty/update/' + ${faculty.id}}" class="btn btn-info" data-toggle="tooltip"
                    th:attr="title=Update +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'">Update</a>
                 <a th:href="@{'/faculty/delete/' + ${faculty.id}}" class="btn btn-danger" data-toggle="tooltip"
                    th:attr="title=Delete +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'" >Delete</a>
+
             </td>
 
         </tbody>

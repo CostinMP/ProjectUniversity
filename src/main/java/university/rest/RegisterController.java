@@ -9,23 +9,13 @@ import university.enitity.MyUser;
 import university.service.user.UserService;
 
 @Controller
-@RequestMapping(value = "/register")
 
 public class RegisterController {
 
     @Autowired
     UserService userService;
 
-    @PostMapping
-    public String registerUser(@ModelAttribute("user") @RequestBody MyUser user) {
-        if (user.getPassword().equalsIgnoreCase(user.getPasswordConfirm())) {
-            userService.saveUser(user);
-            return "register-success";
-        } else {
-            return "register";
-        }
-    }
-    @GetMapping
+    @GetMapping(value = "/register")
     public String registerForm(Model model) {
         MyUser user = new MyUser();
         user.setAccountNonExpired(true);
@@ -37,4 +27,15 @@ public class RegisterController {
 
         return "register";
     }
+
+    @PostMapping(value = "/register")
+    public String registerUser(@ModelAttribute("user") @RequestBody MyUser user) {
+        if (user.getPassword().equalsIgnoreCase(user.getPasswordConfirm())) {
+            userService.saveUser(user);
+            return "register-success";
+        } else {
+            return "register";
+        }
+    }
+
 }

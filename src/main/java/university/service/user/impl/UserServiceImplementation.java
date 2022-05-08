@@ -17,7 +17,6 @@ import university.service.user.UserService;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 
 public class UserServiceImplementation implements UserService {
@@ -65,7 +64,7 @@ public class UserServiceImplementation implements UserService {
         userRepository.deleteById(id);
     }
 
-    public MyUser saveUser(MyUser u) {    //functioneaza alaturi de un constructor de copiere
+    public MyUser saveUser(MyUser u) {
         MyUser user = new MyUser(u);
         user.setPassword(new BCryptPasswordEncoder().encode(u.getPassword()));
         user.setRandomToken(randomTokenService.randomToken(u));
@@ -83,3 +82,4 @@ public class UserServiceImplementation implements UserService {
 
 
 }
+
