@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update Faculty</title>
+    <title>Add Student</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -19,54 +19,56 @@
 <body style="background-color: #D1D0CE">
 <br><br>
 <div class="d-flex justify-content-center">
-    <a href="/index" class="btn btn-secondary">Home</a>
+    <a href="/index" class="btn btn-secondary">Home</a> &nbsp;
+    <a href="/student/all" class="btn btn-secondary">Students</a>
 </div>
 
 <br><br>
 <br><br>
 
 <div class="container-fluid text-center" style="max-width:600px; margin:0 auto; background-color: #D1D0CE ">
-    <div class="text-center"><h2>Update Faculty</h2></div>
-<!--    <div th:if="${messageUpdate}" class="alert alert-light text-center">-->
-<!--        The faculty has been updated successfully.-->
-<!--    </div>-->
+    <div class="text-center"><h2>Save Student</h2></div>
+    <div th:if="${message}" class="alert alert-light text-center">
+        The student has been successfully saved.
+    </div>
     <br>
 
-    <form action="#" th:action="@{'/faculty/update/' + ${faculty.id}}" method="post" th:object="${faculty}"
+    <form action="#" th:action="@{'/student/save/' + ${faculty.id}}" method="post" th:object="${student}"
           style="max-width:400px; margin:0 auto">
         <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{faculty.id}">
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Name Faculty:</label>
+                <label class="col-sm-4 col-form-label">Name Student:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{nameFaculty}" onfocus=this.value="" required/>
+                    <input type="text" th:field="*{nameStudent}" onfocus=this.value="" required/>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Department:</label>
+                <label class="col-sm-4 col-form-label">Email:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{department} " onfocus=this.value="" required/>
+                    <input type="text" th:field="*{emailStudent} " onfocus=this.value="" required/>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Dean:</label>
+                <label class="col-sm-4 col-form-label">Phone Number:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{dean}" onfocus=this.value="" required/>
+                    <input type="text" th:field="*{phoneNumberStudent}" onfocus=this.value="" required/>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Date of insertion:</label>
-                <div class="col-sm-6">
-                    <input type="date" th:field="${faculty.dateFaculty}"  onfocus=this.value="" required/>
+                <label class="col-sm-4 col-form-label">Address:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{addressStudent}" onfocus=this.value="" required/>
                 </div>
             </div>
             <br>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-dark">Update</button>
+                <button type="submit" class="btn btn-dark">Save</button>
             </div>
         </div>
     </form>

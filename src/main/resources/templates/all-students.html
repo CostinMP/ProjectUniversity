@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #307D7E">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="/faculty/all" class="btn btn-outline-light">Faculties</a> &nbsp;&nbsp;
+            </li>
+        </ul>
+        <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
+                <a href="/index" class="btn btn-primary">Home</a>
+            </div>
+        </div>
+
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+                <a href="/contact" class="btn btn-outline-light">Contact</a>&nbsp;&nbsp;
+            </li>
+            <li class="nav-item ml-auto">
+                <a href="/logout" class="btn btn-dark">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div th:switch="${student}">
+    <table class="table table-striped">
+        <thead>
+        <tr align="center">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Address</th>
+            <th scope="col">Faculty</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="student : ${students}" align="center">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.nameStudent}"></td>
+            <td th:text="${student.emailStudent}"></td>
+            <td th:text="${student.phoneNumberStudent}"></td>
+            <td th:text="${student.addressStudent}"></td>
+            <td th:text="${student.faculty.nameFaculty}"></td>
+
+
+            <td>
+
+                <a th:href="@{'/student/delete/' + ${student.id}}" class="btn btn-danger" data-toggle="tooltip"
+                   th:attr="title=Delete +'&nbsp;'+'&quot;'+${student.nameStudent}+'&quot;'">Delete</a>
+
+            </td>
+
+
+    </table>
+</div>
+</body>
+</body>
+</html>

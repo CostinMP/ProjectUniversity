@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import university.enitity.ContactDetails;
-import university.enitity.Faculty;
 import university.repository.ContactRepository;
 import university.repository.DeanRepository;
 import university.repository.FacultyRepository;
@@ -20,9 +19,9 @@ public class ContactController {
 //
 //    @Autowired
 //    private DeanRepository deanRepository;
-//
-//    @Autowired
-//    private ContactRepository contactRepository;
+
+    @Autowired
+    private ContactRepository contactRepository;
 
     @RequestMapping(value ={"/contact"})
     public String contact(){

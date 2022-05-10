@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html"
-      xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Contact</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQnN" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 
 <body style="background-color: #D1D0CE">
@@ -27,9 +28,9 @@
 
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-                <a href="/contact" class="btn btn-outline-light">Contact</a>&nbsp;&nbsp;
-            </li>
+            <!--            <li class="nav-item ">-->
+            <!--                <a href="/contact" class="btn btn-outline-light">Contact</a>&nbsp;&nbsp;-->
+            <!--            </li>-->
             <li class="nav-item ml-auto">
                 <a href="/logout" class="btn btn-dark">Logout</a>
             </li>
@@ -41,29 +42,30 @@
     <div class="content">
         </br>
 
-        <!--        <div class="text-center"><h2>Contact</h2></div>-->
+        <div class="text-center"><h2>Contact</h2></div>
         </br>
         </br>
         </br>
+
     </div>
     <div class="container">
         <div class="contactInfo">
             <div class="box">
-                <!--                <div class="icon"><i class="fas fa-map-marker" aria-hidden="true"></i></div>-->
+                <div class="icon"><i class="fas fa-map-marker" aria-hidden="true"></i></div>
                 <div class="text">
                     <h3>Address</h3>
                     <p>Strada Domnească 47, Galați</p>
                 </div>
             </div>
             <div class="box">
-                <!--                <div class="icon"><i class="fas fa-phone" aria-hidden="true"></i></div>-->
+                <div class="icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                 <div class="text">
                     <h3>Phone</h3>
                     <p>0336 130 108</p>
                 </div>
             </div>
             <div class="box">
-                <!--                <div class="icon"><i class="fas fa-envelope-o" aria-hidden="true"></i></div>-->
+                <div class="icon"><i class="fas fa-envelope-o" aria-hidden="true"></i></div>
                 <div class="text">
                     <h3>Email</h3>
                     <p>ugal@gmail.com</p>
@@ -71,12 +73,10 @@
             </div>
 
 
-            <div class="d-flex justify-content-end">
-                <div class="addressMap">
-                    <div class="d-flex justify-content-end">...</div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.5466347801716!2d28.05382141540533!3d45.43863967910062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b6de53908e58a5%3A0xfa9b95769062b6d8!2sStrada%20Domneasc%C4%83%2047%2C%20Gala%C8%9Bi!5e0!3m2!1sro!2sro!4v1651919282944!5m2!1sro!2sro"
-                            width="600" height="300" style="border:4;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+            <div class="addressMap">
+                <div class="d-flex justify-content-end">...</div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.5466347801716!2d28.05382141540533!3d45.43863967910062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b6de53908e58a5%3A0xfa9b95769062b6d8!2sStrada%20Domneasc%C4%83%2047%2C%20Gala%C8%9Bi!5e0!3m2!1sro!2sro!4v1651919282944!5m2!1sro!2sro"
+                        width="600" height="300" style="border:4;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
         </div>

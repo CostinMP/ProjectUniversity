@@ -16,6 +16,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a href="/faculty/all" class="btn btn-outline-light">Faculties</a> &nbsp;&nbsp;
+                <a href="/student/all" class="btn btn-outline-light">Students</a> &nbsp;&nbsp;
             </li>
             <li class="nav-item active">
                 <a href="/faculty/save" class="btn btn-success">Save Faculty</a>
@@ -24,7 +25,7 @@
 
         <div class="d-flex justify-content-center">
             <div class="d-flex justify-content-center">
-                <a href="/index" class="btn btn-primary">Home</a>
+                <a href="/index" class="btn btn-primary">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
 
@@ -33,7 +34,7 @@
                 <a href="/contact" class="btn btn-outline-light">Contact</a>&nbsp;&nbsp;
             </li>
             <li class="nav-item ml-auto">
-                <a href="/logout" class="btn btn-dark">Logout</a>
+                <a href="/logout" class="btn btn-dark">Logout</a>&nbsp;
             </li>
         </ul>
     </div>
@@ -47,6 +48,8 @@
             <th scope="col">Name</th>
             <th scope="col">Department</th>
             <th scope="col">Dean</th>
+            <th scope="col">Date of insertion</th>
+            <th scope="col">Sign-Up</th>
             <th scope="col">Actions</th>
 
         </tr>
@@ -58,23 +61,26 @@
             <td th:text="${faculty.nameFaculty}"></td>
             <td th:text="${faculty.department}"></td>
             <td th:text="${faculty.dean}"></td>
+            <td th:text="${faculty.dateFaculty}"></td>
 
             <td>
+                <a th:href="@{'/student/save/' + ${faculty.id}}">
+                    <button type="button" class="btn btn-warning" data-toggle="tooltip"
+                            th:attr="title=Sign-Up +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'">
+                        Sign-Up
+                    </button>
+                </a>
+            </td>
 
-<!--                <a th:href="@{'/contact/save/' + ${contact.id}}" class="btn btn-warning" data-toggle="tooltip"-->
-<!--                   th:attr="title=Sing-up +'&nbsp;'+'&quot;'+${contactDetails.username}+'&quot;'" >Sing-up</a>-->
-
+            <td>
                 <a th:href="@{'/faculty/update/' + ${faculty.id}}" class="btn btn-info" data-toggle="tooltip"
                    th:attr="title=Update +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'">Update</a>
                 <a th:href="@{'/faculty/delete/' + ${faculty.id}}" class="btn btn-danger" data-toggle="tooltip"
-                   th:attr="title=Delete +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'" >Delete</a>
-
+                   th:attr="title=Delete +'&nbsp;'+'&quot;'+${faculty.nameFaculty}+'&quot;'">Delete</a>
             </td>
-
+        </tr>
         </tbody>
-
     </table>
 </div>
-
 </body>
 </html>

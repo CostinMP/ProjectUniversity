@@ -28,9 +28,9 @@ public class ContactDetails {
     @JsonIgnore
     private Dean dean;
 
-    @OneToOne(mappedBy = "contactDetails")
-    @JsonIgnore
-    private Faculty faculty;
+//    @OneToOne(mappedBy = "contactDetails")
+//    @JsonIgnore
+//    private Faculty faculty;
 
     @OneToOne(mappedBy = "contactDetails")
     @JsonIgnore
